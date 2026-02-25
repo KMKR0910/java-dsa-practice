@@ -33,7 +33,14 @@ public class SinglyLSExample3 {
       instertAfter(6, 7);
      // Display(head);
       insertBefore(7, 3);
-      Display(head);
+     // Display(head);
+      remove(4);
+    // Display(head);
+     getFirst();
+     getLast();
+     Display(head);
+
+     
 
 
    }
@@ -59,7 +66,7 @@ public class SinglyLSExample3 {
             tmp=tmp.next;
             
          }
-          tmp.next=new Node(item);
+          tmp.next=new Node(item,null);
       }
       public static void instertAfter(int item,int key){
          Node tmp=head;
@@ -79,9 +86,54 @@ public class SinglyLSExample3 {
            
 
          } 
+         if(tmp!=null && prev==null ){
+            head = new Node(item,head);
+         }
          if(tmp!=null){
-         prev.next=new Node(item,prev.next);}
+         prev.next=new Node(item,tmp);}
          
+      }
+
+      public static void remove(int key){
+         if (head==null){
+            return;
+         }
+         Node tmp=head;
+         Node prev=null;
+         
+
+         while(tmp!=null && tmp.data!=key){
+            prev=tmp;
+            tmp=tmp.next;
+         }
+         if (tmp!=null && prev==null){
+            head=head.next;
+
+         }
+        else if(tmp!=null){
+            prev.next=tmp.next;
+
+         }
+         
+      }
+      public static int getLast(){
+
+         if(head==null){
+            throw new RuntimeException("null");
+         }
+       
+         Node tmp=head;
+         while(tmp.next!=null){
+            tmp=tmp.next;
+         }
+        return tmp.data;
+      }
+
+      public static int getFirst(){
+         if (head==null){
+            throw new RuntimeException("null");
+         }
+         return head.data;
       }
 
 
