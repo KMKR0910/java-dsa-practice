@@ -68,5 +68,45 @@ public class DoublyLSExample2 {
       }}
    }
 
+   static void insertAfter(int item , int key){
+      Node tmp=head;
+      Node nextNode=null;
+      while(tmp!=null&&tmp.data!=key){
+         tmp=tmp.next;
+      }
+      if (tmp!=null){
+         nextNode=tmp.next;
+         tmp.next=new Node(item,tmp,nextNode);
+      }
+      if (nextNode!=null){
+      nextNode.prev= tmp.next;
+      }
+
+   }
+   public static void insertBefore(int key, int item)
+{
+    Node tmp = head;
+
+    while(tmp != null && tmp.data != key) {
+        tmp = tmp.next;
+    }
+
+    if(tmp != null)
+    {
+        Node PrevRef = tmp.prev;
+
+        tmp.prev = new Node(item, tmp.prev, tmp);
+
+        if(PrevRef != null)
+        {
+            PrevRef.next = tmp.prev;
+        }
+        else
+        {
+            head = tmp.prev;
+        }
+    }
+}
+
    
 }
