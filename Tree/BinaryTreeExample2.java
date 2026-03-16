@@ -1,5 +1,6 @@
 package Tree;
 
+
 public class BinaryTreeExample2 {
 
    static class Node{
@@ -96,6 +97,92 @@ public class BinaryTreeExample2 {
       }return false;
    }
 
+    public boolean delete(int data){
+      Node parent=root;
+      Node current=null;
+
+      boolean isLeftChlid = false;
+      while(current.data!=data && current!=null){
+         parent=current;
+         if(current.data>data){
+            isLeftChlid=true;
+            current=current.left;
+            
+
+         }
+         else{
+            isLeftChlid=false;
+            current=current.right;
+            
+         }
+
+         if(current==null){
+            return false;
+         }
+      }
+         if(current.left==null && current.right==null){
+            if(current==root){
+               root=null;
+            }
+         
+            if(isLeftChlid==true){
+               parent.left=null;
+            }
+            else{
+               parent.right=null;
+            }
+         
+      
+         //if methods continue this
+         }else if(current.right==null){
+
+            if(current==root){
+               root=null;
+            }
+            if(isLeftChlid=true){
+            parent.left=current.left;
+            }   
+         }
+         else if (current.left==null){
+            if(isLeftChlid=false){
+            parent.right=current.right;
+            }
+         }
+         else if (current.left!=null&& current.right!=null){
+
+            
+            Node successor=current.right;
+            Node successorParent=current;
+            while(successor.left!=null){
+               successorParent=successor;
+               successor=successor.left;
+            }
+            if(successorParent!=current){
+               successorParent.left=successor.right;
+               successor.right=current.right;
+            }
+            successor.left=current.left;
+
+            if(current==root){
+               root=successor;
+            }
+            else if(isLeftChlid=true){
+              
+               parent.left=successor;}
+               else{
+                  parent.right=successor;
+               }
+            }
+
+         
+      
+      
+      return true;
+      
+
+
+   }
+
 
    }
    public void display(Node currNode){
@@ -106,6 +193,7 @@ public class BinaryTreeExample2 {
       }
 
    }
+  
 
    
 
