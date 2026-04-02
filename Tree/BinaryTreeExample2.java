@@ -137,14 +137,23 @@ public class BinaryTreeExample2 {
          }else if(current.right==null){
 
             if(current==root){
-               root=null;
+               root=current.left;
             }
             if(isLeftChlid=true){
             parent.left=current.left;
+            }
+            else{
+               parent.right=current.left;
             }   
          }
          else if (current.left==null){
-            if(isLeftChlid=false){
+            if (current==root){
+               root=current.right;
+            }
+            if(isLeftChlid=true){
+               parent.left=current.right;
+            }
+            else{  
             parent.right=current.right;
             }
          }
@@ -153,10 +162,12 @@ public class BinaryTreeExample2 {
             
             Node successor=current.right;
             Node successorParent=current;
-            while(successor.left!=null){
+            while(successor.left!=null){//find successor
                successorParent=successor;
                successor=successor.left;
             }
+
+
             if(successorParent!=current){
                successorParent.left=successor.right;
                successor.right=current.right;
