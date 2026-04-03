@@ -51,29 +51,31 @@ public class HeapExample2 {//MinHeap using array
 
       }
 
-      public void deleteRoot(){
+      public int deleteRoot(){
          int tmp=Heap[1];
          Heap[1]=Heap[size];
          size--;
          MinHeapfy(tmp);
+         return tmp;
       }
 
 
       public void MinHeapfy(int pos){
 
          if(!iSLeafNode(pos)){
+            return;}
 
             if (Heap[pos]>Heap[leftChild(pos)] || Heap[pos]>Heap[rightChild(pos)]){
 
-               if (Heap[leftChild(pos)]<Heap[rightChild(pos)]){
+               if (Heap[leftChild(pos)]>Heap[rightChild(pos)]){
 
-                  swap(pos,rightChild(pos));
-                  MinHeapfy(rightChild(pos));
+                  swap(pos,leftChild(pos));
+                  MinHeapfy(leftChild(pos));
 
                }
                else{
-                  swap(pos, leftChild(pos));
-                  MinHeapfy(leftChild(pos));
+                  swap(pos, rightChild(pos));
+                  MinHeapfy(rightChild(pos));
                }
             }
          }

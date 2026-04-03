@@ -59,7 +59,7 @@ public class SinglyLSExample3 {
 
       public static void addLast(int item){
          if (head==null){
-            head= new Node(item,head);
+            head= new Node(item,head);//addFirst(item);
          }
          Node tmp= head;
          while(tmp.next!=null){
@@ -87,7 +87,7 @@ public class SinglyLSExample3 {
 
          } 
          if(tmp!=null && prev==null ){
-            head = new Node(item,head);
+            head = new Node(item,head);//addFirst(item);
          }
          if(tmp!=null){
          prev.next=new Node(item,tmp);}

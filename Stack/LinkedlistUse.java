@@ -43,19 +43,28 @@ static void push(int item){
       head=newNode;
       
 
+      
    }
       
    }
 
-   static void pop(){
+   static int pop(){
       if (head==null){
-         return;
+         return -1;
       }
       else if(head.next==null){
+         int popedvalue= head.data;
          head=null;
+         return popedvalue;
+
+
       }
       else{
+         int popedvalue= head.data;
          head=head.next;
+         return popedvalue;
+
+
          
       }
 

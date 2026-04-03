@@ -67,12 +67,15 @@ public class HeapExample1 {
       int current=size;
       Heap[1]=Heap[current];
       size--;
+      Heapify(1);
       return root;
 
    }
 
    public void Heapify(int pos){
+      
       if(!isLeaf(pos)){
+         return;}  
 
          if (Heap[pos]<Heap[leftChild(pos)] || Heap[pos]<Heap[rightChild(pos)]){
             if (Heap[leftChild(pos)]>Heap[rightChild(pos)]){   ///for max heap swap with largest child 
