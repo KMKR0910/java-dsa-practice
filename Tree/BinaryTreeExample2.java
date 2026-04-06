@@ -85,7 +85,7 @@ public class BinaryTreeExample2 {
    public boolean find(int data){
       Node current=root;
       while(current!=null){
-         if (current.data==data){
+         if (current.data==data){//firts check in root of sub tree
             return true;
 
          }else if(current.data>data){
@@ -157,7 +157,7 @@ public class BinaryTreeExample2 {
             parent.right=current.right;
             }
          }
-         else if (current.left!=null&& current.right!=null){
+         else if (current.left!=null && current.right!=null){
 
             
             Node successor=current.right;

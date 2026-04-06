@@ -13,9 +13,9 @@ public class SinglyLSExample2 {
   }}
 
   public static void main (String[]args){
-   Node temp = new Node(3,null);
-   temp = new Node(2,temp);
-   head=new Node(1,temp);
+   Node newNode = new Node(3,null);
+   newNode = new Node(2,newNode);
+   head=new Node(1,newNode);
    display(head);
 
   }

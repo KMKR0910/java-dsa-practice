@@ -71,18 +71,19 @@ public class DoublyLSExample2 {
    static void insertAfter(int item , int key){
       Node tmp=head;
       Node nextNode=null;
-      while(tmp!=null&&tmp.data!=key){
+      while(tmp!=null && tmp.data!=key){
          tmp=tmp.next;
       }
-      if (tmp!=null){
+      if (tmp!=null){//(tmp!null && tmp.next==null) this is idea (in last node)
          nextNode=tmp.next;
          tmp.next=new Node(item,tmp,nextNode);
-      }
-      if (nextNode!=null){
-      nextNode.prev= tmp.next;
-      }
-
+      
+         if (nextNode!=null){
+         nextNode.prev= tmp.next;
+         }
    }
+}
+   
    public static void insertBefore(int key, int item)
 {
     Node tmp = head;
